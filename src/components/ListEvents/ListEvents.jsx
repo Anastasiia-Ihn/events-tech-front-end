@@ -13,7 +13,7 @@ const ListEvents = () => {
 
   useEffect(() => {
     const currentPage = searchParams.get("page") ?? "";
-    console.log(currentPage);
+
     if (currentPage === "") {
       setSearchParams({ page: 1 });
       return;

@@ -7,6 +7,8 @@ const CardEvent = ({ event }) => {
     <div className={css.wrapperCard}>
       <h2>{title}</h2>
       <p>{description}</p>
+      <button>Register</button>
+      <button>View</button>
     </div>
   );
 };

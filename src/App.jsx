@@ -4,13 +4,13 @@ import ListEvents from "./components/ListEvents/ListEvents";
 
 const App = () => {
   return (
-    <>
+    <div className="container">
       <Header />
-      <main>
+      <main className="container-main">
         <ListEvents />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

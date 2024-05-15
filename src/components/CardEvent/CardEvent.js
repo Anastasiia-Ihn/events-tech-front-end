@@ -1,10 +1,12 @@
-//import css from './CardEvent.module.css'
+import css from "./CardEvent.module.css";
 
-const CardEvent = () => {
+const CardEvent = ({ event }) => {
+  const { title, description } = event;
+
   return (
-    <div>
-      <h2>Title</h2>
-      <p>nnnnnnnnnnn</p>
+    <div className={css.wrapperCard}>
+      <h2>{title}</h2>
+      <p>{description}</p>
     </div>
   );
 };

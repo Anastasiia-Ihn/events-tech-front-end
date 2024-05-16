@@ -20,6 +20,7 @@ const ModalRegister = ({ eventId, onClose }) => {
   const onSubmit = (data) => {
     sendDataUser(data, eventId);
     reset();
+    onClose();
   };
 
   return (
@@ -40,36 +41,42 @@ const ModalRegister = ({ eventId, onClose }) => {
 
         <label htmlFor="birth">Birthday</label>
         <input id="birth" {...register("birth")} />
-
+        <p>Where did you hear about this event?</p>
         <div className={css.wrapperRadio}>
-          <input
-            id="socMedia"
-            type="radio"
-            name="hearUs"
-            value="social media"
-            {...register("hearUs")}
-          />
-          <label htmlFor="socMedia"> Social media</label>
+          <label htmlFor="socMedia">
+            <input
+              id="socMedia"
+              type="radio"
+              name="hearUs"
+              value="social media"
+              {...register("hearUs")}
+            />
+            Social media
+          </label>
 
-          <input
-            id="friends"
-            type="radio"
-            name="hearUs"
-            value="friends"
-            {...register("hearUs")}
-          />
-          <label htmlFor="friends">Friends</label>
+          <label htmlFor="friends">
+            <input
+              id="friends"
+              type="radio"
+              name="hearUs"
+              value="friends"
+              {...register("hearUs")}
+            />
+            Friends
+          </label>
 
-          <input
-            id="myself"
-            type="radio"
-            name="hearUs"
-            value="found myself"
-            {...register("hearUs")}
-          />
-          <label htmlFor="myself">Found myself</label>
+          <label htmlFor="myself">
+            <input
+              id="myself"
+              type="radio"
+              name="hearUs"
+              value="found myself"
+              {...register("hearUs")}
+            />
+            Found myself
+          </label>
         </div>
-        <input type="submit" />
+        <button type="submit">Send</button>
       </form>
     </div>
   );

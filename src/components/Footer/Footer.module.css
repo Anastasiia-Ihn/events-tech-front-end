@@ -1,3 +1,7 @@
 .footer {
-  grid-area: "footer";
+  width: 100%;
+  font-size: 24px;
+  background-color: var(--main-active-color);
+  padding: 15px 50px;
+  text-align: center;
 }

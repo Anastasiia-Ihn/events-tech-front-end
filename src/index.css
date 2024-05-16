@@ -1,28 +1,44 @@
 @import "reset.css";
 
 :root {
-  /* --font-family: "Roboto", sans-serif; */
+  --font-family: "Roboto", sans-serif;
   --bg: #f8f9fa;
+  --main-active-color: #0ba;
+  --white: #fff;
+  --shadow: 0 0 1px 0 rgba(23, 26, 31, 0.11), 0 0 2px 0 rgba(23, 26, 31, 0.16);
+  --black: #000;
 }
 
 body {
   margin: 0 auto;
+  width: 100%;
 
-  /* font-family: var(--font-family); */
+  font-family: var(--font-family);
   background: var(--bg);
 }
 
 .container {
-  display: grid;
-  grid-template-areas: "header" "main" "footer";
-}
-
-.container-main {
-  grid-area: "main";
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 button {
   cursor: pointer;
+
+  border: 1px solid var(--main-active-color);
+  border-radius: 4px;
+  width: 110px;
+  height: 44px;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.625;
+  color: var(--main-active-color);
+}
+
+button:hover {
+  background-color: var(--white);
 }
 
 .modal-content {
@@ -33,7 +49,6 @@ button {
   bottom: auto;
   transform: translate(-50%, -50%);
   padding: 0;
-  border: var(--borderModal);
   background: transparent;
   border-radius: 8px;
   overflow: hidden;
@@ -45,4 +60,14 @@ button {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.container-main {
+  margin: 0 auto;
+  padding: 0 10px;
+}
+@media only screen and (min-width: 420px) {
+  .container-main {
+    padding: 0 60px;
+  }
 }

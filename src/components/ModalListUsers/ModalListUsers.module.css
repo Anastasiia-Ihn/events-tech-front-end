@@ -1,19 +1,46 @@
 .wrapper {
   position: relative;
-  width: 450px;
-  height: 300px;
-  padding: 10px;
+  width: 300px;
+  min-height: 300px;
+  padding: 15px 10px;
+  margin: 0 auto;
+  border: 1px solid var(--black);
+  border-radius: 8px;
 
-  border: 1px solid #000;
-  background-color: #fff;
+  background-color: var(--white);
 }
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width: 500px;
+    padding: 15px;
+  }
+}
+
 .wrapper > h2 {
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.wrapper > ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .closeBtn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
   position: absolute;
   top: 14px;
   right: 14px;
+  background-color: var(--white);
+}
+
+.closeBtn:hover {
+  color: var(--black);
+  background-color: var(--main-active-color);
 }

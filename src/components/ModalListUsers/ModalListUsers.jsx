@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import css from "./ModalListUsers.module.css";
 import { getAllUsers } from "../../helpers/sendDataUser";
+import CardUser from "../CardUser/CardUser";
 
-const ListUsers = ({ eventId, onClose }) => {
+const ModalListUsers = ({ eventId, onClose }) => {
   const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    async function fetchUsers() {
       try {
         const users = await getAllUsers(eventId);
-
-        if (!users?.length) {
-          setAllUsers([]);
-          prompt("no have");
+        if (!users) {
+          console.log("no have");
         }
 
-        allUsers(users);
+        setAllUsers(users);
       } catch (error) {
         console.log(error);
       }
-    };
+    }
     fetchUsers();
-  }, [allUsers, eventId]);
+  }, [eventId]);
 
   return (
     <div className={css.wrapper}>
@@ -30,12 +29,15 @@ const ListUsers = ({ eventId, onClose }) => {
         X
       </button>
       <ul>
-        {allUsers?.map((el) => (
-          <li>{console.log(el)}</li>
-        ))}
+        {allUsers.length ? (
+          allUsers?.map((el) => <CardUser key={el.email} user={el} />)
+        ) : (
+          <p>There are no members here yet.</p>
+        )}
+        {}
       </ul>
     </div>
   );
 };
 
-export default ListUsers;
+export default ModalListUsers;

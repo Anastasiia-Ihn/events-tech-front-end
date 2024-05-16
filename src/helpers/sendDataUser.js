@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const sendDataUser = async (data, eventId) => {
   try {
-    console.log(data);
     await axios.post(`/registration/${eventId}`, data);
   } catch (error) {
     console.log(error);
@@ -11,7 +10,8 @@ export const sendDataUser = async (data, eventId) => {
 
 export const getAllUsers = async (eventId) => {
   try {
-    await axios.get(`/registration/${eventId}`);
+    const resp = await axios.get(`/registration/${eventId}`);
+    return resp.data;
   } catch (error) {
     console.log(error);
   }

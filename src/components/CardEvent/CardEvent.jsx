@@ -27,14 +27,18 @@ const CardEvent = ({ event }) => {
   return (
     <>
       <div className={css.wrapperCard}>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <button type="button" onClick={onClickRegister}>
-          Register
-        </button>
-        <button type="button" onClick={onClickViewUsers}>
-          View
-        </button>
+        <div className={css.wrapperText}>
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+        <div className={css.wrapperBtn}>
+          <button type="button" onClick={onClickRegister}>
+            Register
+          </button>
+          <button type="button" onClick={onClickViewUsers}>
+            View
+          </button>
+        </div>
       </div>
       <Modal
         isOpen={isOpen}

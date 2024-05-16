@@ -23,7 +23,7 @@ const ListEvents = () => {
       try {
         const eventsAll = await getAllEvents(currentPage);
 
-        if (!eventsAll.length) {
+        if (!eventsAll) {
           setIsMoreEvents(false);
           throw Error("Sorry");
         }
@@ -50,7 +50,11 @@ const ListEvents = () => {
           <CardEvent key={Date.now() * Math.random()} event={el} />
         ))}
       </ul>
-      {isMoreEvents && <button onClick={handleNextPage}>LoadMore</button>}
+      {isMoreEvents && (
+        <button className={css.btnMore} onClick={handleNextPage}>
+          LoadMore
+        </button>
+      )}
     </>
   );
 };

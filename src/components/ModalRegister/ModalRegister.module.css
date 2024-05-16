@@ -1,15 +1,25 @@
 .wrapper {
   position: relative;
-  width: 450px;
-  height: 300px;
-  padding: 10px;
+  width: 300px;
+  padding: 15px 10px;
 
-  border: 1px solid #000;
-  background-color: #fff;
+  border: 1px solid var(--black);
+  border-radius: 8px;
+
+  background-color: var(--white);
 }
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width: 450px;
+    padding: 15px;
+  }
+}
+
 .wrapper > h2 {
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .form {
   display: flex;
@@ -17,13 +27,36 @@
   gap: 5px;
 }
 
+.form > label {
+  font-style: italic;
+}
+
+.form > input {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.form > button {
+  margin: 30px auto 0 auto;
+}
+
 .wrapperRadio {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .closeBtn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
   position: absolute;
   top: 14px;
   right: 14px;
+  background-color: var(--white);
+}
+
+.closeBtn:hover {
+  color: var(--black);
+  background-color: var(--main-active-color);
 }

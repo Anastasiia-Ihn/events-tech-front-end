@@ -1,5 +1,33 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
+  margin-bottom: 60px;
+}
+@media only screen and (min-width: 680px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.btnMore {
+  background-color: var(--main-active-color);
+  color: var(--bg);
+  margin: 0 auto;
+}
+
+.btnMore:hover {
+  color: var(--black);
 }

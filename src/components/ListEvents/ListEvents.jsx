@@ -5,10 +5,11 @@ import { useSearchParams } from "react-router-dom";
 
 import CardEvent from "../CardEvent/CardEvent";
 import { getAllEvents } from "../../helpers/getData";
+import { Loader } from "../Loader/Loader";
 
 const ListEvents = () => {
   const [events, setEvents] = useState([]);
-  const [isMoreEvents, setIsMoreEvents] = useState(true);
+  const [isMoreEvents, setIsMoreEvents] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const ListEvents = () => {
           setIsMoreEvents(false);
           throw Error("Sorry");
         }
+        setIsMoreEvents(true);
 
         setEvents((prev) => [...prev, ...eventsAll]);
       } catch (error) {
@@ -45,6 +47,7 @@ const ListEvents = () => {
 
   return (
     <>
+      {!isMoreEvents && <Loader />}
       <ul className={css.list}>
         {events?.map((el) => (
           <CardEvent key={Date.now() * Math.random()} event={el} />

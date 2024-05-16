@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import CardEvent from "../CardEvent/CardEvent";
-import { getAllEvents } from "../../getData/getData";
+import { getAllEvents } from "../../helpers/getData";
 
 const ListEvents = () => {
   const [events, setEvents] = useState([]);

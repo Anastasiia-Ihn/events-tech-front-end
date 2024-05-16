@@ -1,7 +1,8 @@
+import { sendDataUser } from "../../helpers/sendDataUser";
 import css from "./Register.module.css";
 import { useForm } from "react-hook-form";
 
-const Register = () => {
+const Register = ({ eventId, onClose }) => {
   const {
     register,
     reset,
@@ -17,15 +18,17 @@ const Register = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    sendDataUser(data, eventId);
     reset();
   };
 
   return (
     <div className={css.wrapper}>
       <h2>Event registration</h2>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <button className={css.closeBtn} type="button" onClick={onClose}>
+        X
+      </button>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="fullName">Full name</label>
         <input id="fullName" {...register("fullName", { required: true })} />
         {errors.fullName && <span>This field is required</span>}
@@ -38,7 +41,7 @@ const Register = () => {
         <label htmlFor="birth">Birthday</label>
         <input id="birth" {...register("birth")} />
 
-        <div>
+        <div className={css.wrapperRadio}>
           <input
             id="socMedia"
             type="radio"

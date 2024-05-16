@@ -2,8 +2,8 @@ import { useState } from "react";
 import Modal from "react-modal";
 
 import css from "./CardEvent.module.css";
-import Register from "../Register/Register";
-import ListEvents from "../ListEvents/ListEvents";
+import ModalRegister from "../ModalRegister/ModalRegister";
+import ModalListUsers from "../ModalListUsers/ModalListUsers";
 
 const CardEvent = ({ event }) => {
   const { _id, title, description } = event;
@@ -43,7 +43,7 @@ const CardEvent = ({ event }) => {
         overlayClassName="modal-overlay"
         ariaHideApp={false}
       >
-        <Register onClose={closeModal} eventId={_id} />
+        <ModalRegister onClose={closeModal} eventId={_id} />
       </Modal>
       <Modal
         isOpen={isOpenModalUsers}
@@ -52,7 +52,7 @@ const CardEvent = ({ event }) => {
         overlayClassName="modal-overlay"
         ariaHideApp={false}
       >
-        <ListEvents onClose={closeModalUsers} eventId={_id} />
+        <ModalListUsers onClose={closeModalUsers} eventId={_id} />
       </Modal>
     </>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import css from "./ListUsers.module.css";
+import css from "./ModalListUsers.module.css";
 import { getAllUsers } from "../../helpers/sendDataUser";
 
 const ListUsers = ({ eventId, onClose }) => {
@@ -10,9 +10,9 @@ const ListUsers = ({ eventId, onClose }) => {
       try {
         const users = await getAllUsers(eventId);
 
-        if (!users.length) {
+        if (!users?.length) {
           setAllUsers([]);
-          throw Error("no have");
+          prompt("no have");
         }
 
         allUsers(users);

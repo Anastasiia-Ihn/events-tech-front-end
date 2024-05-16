@@ -1,8 +1,8 @@
 import { sendDataUser } from "../../helpers/sendDataUser";
-import css from "./Register.module.css";
+import css from "./ModalRegister.module.css";
 import { useForm } from "react-hook-form";
 
-const Register = ({ eventId, onClose }) => {
+const ModalRegister = ({ eventId, onClose }) => {
   const {
     register,
     reset,
@@ -75,4 +75,4 @@ const Register = ({ eventId, onClose }) => {
   );
 };
 
-export default Register;
+export default ModalRegister;

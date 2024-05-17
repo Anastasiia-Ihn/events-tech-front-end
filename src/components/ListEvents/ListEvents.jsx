@@ -12,6 +12,7 @@ const ListEvents = () => {
   const [isMoreEvents, setIsMoreEvents] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [load, setLoad] = useState(true);
+
   useEffect(() => {
     const currentPage = searchParams.get("page") ?? "";
 
@@ -29,7 +30,13 @@ const ListEvents = () => {
           setLoad(false);
           throw Error("Sorry");
         }
+
         setIsMoreEvents(true);
+
+        if (eventsAll.length < 8) {
+          setIsMoreEvents(false);
+        }
+
         setLoad(false);
 
         setEvents((prev) => [...prev, ...eventsAll]);
@@ -57,7 +64,7 @@ const ListEvents = () => {
       </ul>
       {isMoreEvents && (
         <button className={css.btnMore} onClick={handleNextPage}>
-          LoadMore
+          Load more
         </button>
       )}
     </>

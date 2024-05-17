@@ -1,5 +1,5 @@
 import Joi from "joi";
-
+// eslint-disable-next-line
 const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const enumHearUs = ["social media", "friends", "found myself"];
 

@@ -1,6 +1,8 @@
 import { sendDataUser } from "../../helpers/sendDataUser";
 import css from "./ModalRegister.module.css";
 import { useForm } from "react-hook-form";
+import { userValidation } from "../../validation/userValidation";
+import { joiResolver } from "@hookform/resolvers/joi";
 
 const ModalRegister = ({ eventId, onClose }) => {
   const {
@@ -15,6 +17,7 @@ const ModalRegister = ({ eventId, onClose }) => {
       birth: "",
       hearUs: "",
     },
+    resolver: joiResolver(userValidation),
   });
 
   const onSubmit = (data) => {

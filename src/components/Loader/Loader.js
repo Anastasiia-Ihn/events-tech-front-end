@@ -6,7 +6,7 @@ export const Loader = () => {
       visible={true}
       height="100"
       width="100"
-      color={"var(--accent)"}
+      color={"var(--main-active-color)"}
       ariaLabel="three-circles-loading"
       wrapperStyle={{
         position: "absolute",

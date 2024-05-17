@@ -11,7 +11,7 @@ const ListEvents = () => {
   const [events, setEvents] = useState([]);
   const [isMoreEvents, setIsMoreEvents] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const [load, setLoad] = useState(true);
   useEffect(() => {
     const currentPage = searchParams.get("page") ?? "";
 
@@ -26,9 +26,11 @@ const ListEvents = () => {
 
         if (!eventsAll) {
           setIsMoreEvents(false);
+          setLoad(false);
           throw Error("Sorry");
         }
         setIsMoreEvents(true);
+        setLoad(false);
 
         setEvents((prev) => [...prev, ...eventsAll]);
       } catch (error) {
@@ -47,7 +49,7 @@ const ListEvents = () => {
 
   return (
     <>
-      {!isMoreEvents && <Loader />}
+      {load && <Loader />}
       <ul className={css.list}>
         {events?.map((el) => (
           <CardEvent key={Date.now() * Math.random()} event={el} />
